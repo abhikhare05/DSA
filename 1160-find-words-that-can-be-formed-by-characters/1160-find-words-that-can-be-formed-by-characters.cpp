@@ -1,18 +1,17 @@
 class Solution {
 public:
     int countCharacters(vector<string>& words, string chars) {
-        
-        //Counting the characters
+        int count = 0;
+        //Counting the number of characters in string chars
         vector<int> charCount(26,0);
         for(char &ch: chars){
             charCount[ch-'a']++;
         }
         
-        int count = 0;
         for(string &word: words){
             vector<int> wordCount(26,0);
             for(char &ch: word){
-                wordCount[ch-'a']++;
+                wordCount[ch-'a']++;  //Counting the number of characters in each word 
             }
             
             bool ok = true;
@@ -22,11 +21,11 @@ public:
                     break;
                 }
             }
+            
             if(ok){
                 count += word.size();
             }
         }
         return count;
-        
     }
 };
