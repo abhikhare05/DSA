@@ -15,16 +15,16 @@ class Solution{
     {
         //Your code here
         unordered_set<int>s;
-        int pre_sum=0;
-        for(int i=0;i<n;i++){
-            pre_sum += arr[i];
-            
-            if(pre_sum == 0)
+        int ps = 0;
+        for(int i = 0; i < n; i++){
+            ps += arr[i];
+            if(ps == 0){
                 return true;
-            if(s.find(pre_sum)!=s.end())
+            }
+            if(s.find(ps) != s.end()){
                 return true;
-            
-            s.insert(pre_sum);
+            }
+            s.insert(ps);
         }
         return false;
     }
